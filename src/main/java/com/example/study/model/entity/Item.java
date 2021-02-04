@@ -19,6 +19,18 @@ public class Item {
     private Integer price;
     private String content;
 
+    // LAZY = 지연로딩, EAGER = 즉시로
+
+    // * 추천
+    // LAZY = SELECT * FROM  item where id = ?;
+    // 따로 GET method를 호출하지 않는 이상 다른 연관 관계 호출 않음
+
+    // 1:1 일 경우 추천
+    // EAGER =
+    // item_id = order_detail.item_id
+    // user_id = order_detail.user_id
+    // where item.id = ?;
+    // 연관 관계가 있는 것을 모두 호출
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
     private List<OrderDetail> orderDetailList;
 }

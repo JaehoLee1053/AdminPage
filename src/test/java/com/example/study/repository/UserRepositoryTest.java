@@ -3,11 +3,9 @@ package com.example.study.repository;
 import com.example.study.StudyApplicationTests;
 import com.example.study.model.entity.Item;
 import com.example.study.model.entity.User;
-import org.assertj.core.api.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.junit.*;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
@@ -23,11 +21,11 @@ public class UserRepositoryTest extends StudyApplicationTests {
     @Test
     public void create() {
         User user = new User();
-        user.setAccount("TestUser03");
-        user.setEmail("TestUser03@gmail.com");
-        user.setPhoneNumber("010-1111-3333");
+        user.setAccount("TestUser05");
+        user.setEmail("TestUser05@gmail.com");
+        user.setPhoneNumber("010-1111-5555");
         user.setCreatedAt(LocalDateTime.now());
-        user.setCreatedBy("admin");
+        user.setCreatedBy("admin05");
 
         User newUser = userRepository.save(user);
         System.out.println("newUser : " + newUser);
@@ -36,7 +34,7 @@ public class UserRepositoryTest extends StudyApplicationTests {
     @Test
     @Transactional
     public void read() {
-        Optional<User> user = userRepository.findById(13L);
+        Optional<User> user = userRepository.findByAccount("TestUser03");
 
         user.ifPresent(selectUser -> {
 //            System.out.println("user : " + selectUser);
