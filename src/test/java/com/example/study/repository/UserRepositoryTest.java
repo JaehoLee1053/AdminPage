@@ -20,30 +20,13 @@ public class UserRepositoryTest extends StudyApplicationTests {
 
     @Test
     public void create() {
-        User user = new User();
-        user.setAccount("TestUser05");
-        user.setEmail("TestUser05@gmail.com");
-        user.setPhoneNumber("010-1111-5555");
-        user.setCreatedAt(LocalDateTime.now());
-        user.setCreatedBy("admin05");
 
-        User newUser = userRepository.save(user);
-        System.out.println("newUser : " + newUser);
     }
 
     @Test
     @Transactional
     public void read() {
-        Optional<User> user = userRepository.findByAccount("TestUser03");
 
-        user.ifPresent(selectUser -> {
-//            System.out.println("user : " + selectUser);
-//            System.out.println("email : " + selectUser.getEmail());
-            selectUser.getOrderDetailList().stream().forEach(detail->{
-                Item item = detail.getItem();
-                System.out.println(item);
-            });
-        });
     }
 
     @Test
