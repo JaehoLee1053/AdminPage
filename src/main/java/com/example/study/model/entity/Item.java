@@ -28,7 +28,7 @@ public class Item {
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
-
+    private Long partnerId;
 
 //    // LAZY = 지연로딩, EAGER = 즉시로
 //

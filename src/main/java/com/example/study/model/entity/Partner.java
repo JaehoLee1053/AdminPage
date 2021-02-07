@@ -19,11 +19,11 @@ public class Partner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String satus;
+    private String status;
     private String address;
     private String callCenter;
-    private String phoneNumber;
-    private String buisinessNumber;
+    private String partnerNumber;
+    private String businessNumber;
     private String ceoName;
     private LocalDateTime registeredAt;
     private LocalDateTime unregisteredAt;
@@ -31,4 +31,5 @@ public class Partner {
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
+    private Long categoryId;
 }
