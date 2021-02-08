@@ -3,6 +3,8 @@ package com.example.study.repository;
 import com.example.study.StudyApplicationTests;
 import com.example.study.model.entity.Item;
 import com.example.study.model.entity.User;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +49,27 @@ public class UserRepositoryTest extends StudyApplicationTests {
     @Transactional
     public void read() {
         User user = userRepository.findFirstByPhoneNumberOrderByIdDesc("010-1111-2222");
-        Assertions.assertNotNull(user);
+
+        if (user != null) {
+            user.getOrderGroupList().stream().forEach(orderGroup -> {
+                System.out.println("-------------------주문묶음-------------------");
+                System.out.println("수령지 : " + orderGroup.getRevAddress());
+                System.out.println("총금액 : " + orderGroup.getTotalPrice());
+                System.out.println("총수량 : " + orderGroup.getTotalQuantity());
+
+                System.out.println("-------------------주문상세-------------------");
+
+                orderGroup.getOrderDetailList().forEach(orderDetail -> {
+//                    System.out.println("파트너사의 이름 : " + orderDetail.getItem().getPartner().getName());
+//                    System.out.println("파트너사의 카테고리 : " + orderDetail.getItem().getPartner().getCategory().getTitle());
+                    System.out.println("주문의 상품 : " + orderDetail.getItem().getName());
+                    System.out.println("고객센터 번호 : " + orderDetail.getItem().getPartner().getCallCenter());
+                    System.out.println("주문의 상태 : " + orderDetail.getStatus());
+                    System.out.println("도착예정일자 : " + orderDetail.getArrivalDate());
+                });
+            });
+
+        }
     }
 
     @Test

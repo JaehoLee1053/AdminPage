@@ -17,9 +17,9 @@ public class CategoryRepositoryTest extends StudyApplicationTests {
     @Test
     public void create() {
         String type = "Computer";
-        String title = "컴퓨터";
+        String title = "컴퓨터02";
         LocalDateTime createdAt = LocalDateTime.now();
-        String createdBy = "AdminServer";
+        String createdBy = "AdminServer02";
 
         Category category = new Category();
         category.setType(type);

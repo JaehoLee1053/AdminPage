@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-//@ToString(exclude = {"user", "item"})
+@ToString(exclude = {"orderGroup", "item"})
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +26,10 @@ public class OrderDetail {
     private String createdBy;
     private LocalDateTime updatedAt;
     private String updatedBy;
-    private Long orderGroupId;
-    private Long itemId;
-//    @ManyToOne
-//    private User user; // hibernate를 쓰면 객체 이름 적어주면 알아서 userId 찾아감
-//    @ManyToOne
-//    private Item item;
+
+    @ManyToOne
+    private Item item;
+
+    @ManyToOne
+    private OrderGroup orderGroup;
 }
