@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
+@ToString(exclude = "partnerList")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +26,6 @@ public class Category {
     private LocalDateTime updatedAt;
     private String updatedBy;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private List<Partner> partnerList;
 }
