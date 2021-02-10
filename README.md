@@ -1,0 +1,3 @@
+# AdminPage
+
+### Response Sample
