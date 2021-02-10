@@ -26,6 +26,4 @@
 
 - data를 제외한 나머지 부분은 기본적으로 사용하는 부분으로 Header로 정의, 통신할 때마다 달라질 수 있는 data 부분은 data/Body로 부름
 
-|||||Request||||
-|-----|-----|-----|-----|-----|-----|-----|-----|
-|Content-Type||||Path Parameter||||
+!(markdown_logo)(https://docs.google.com/spreadsheets/d/1i4ZTAMoyVPtGar0UQX7HE-1hHjA2uSe0VuCGd4HaGYo/edit#gid=0&range=B6:I17)
