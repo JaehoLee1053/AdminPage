@@ -26,4 +26,5 @@
 
 - data를 제외한 나머지 부분은 기본적으로 사용하는 부분으로 Header로 정의, 통신할 때마다 달라질 수 있는 data 부분은 data/Body로 부름
 
-!(markdown_logo)(https://docs.google.com/spreadsheets/d/1i4ZTAMoyVPtGar0UQX7HE-1hHjA2uSe0VuCGd4HaGYo/edit#gid=0&range=B6:I17)
+![api_request_table](https://user-images.githubusercontent.com/67194430/107545329-80bacd80-6c0e-11eb-9b2d-7ec090f9bc30.png)
+
