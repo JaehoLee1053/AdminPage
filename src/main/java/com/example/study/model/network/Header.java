@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Header<T> {
     // api 통신시간
+
     // @JsonProperty("transaction_time")
     private LocalDateTime transactionTime; // network와 통신 시에는 LocalDateTime보다는 String 이용
 
