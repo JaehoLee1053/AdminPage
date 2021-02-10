@@ -1,5 +1,7 @@
 # AdminPage
 
+### API
+
 #### Response Sample
 
 <pre>
