@@ -1,6 +1,6 @@
 # AdminPage
 
-### Response Sample
+#### Response Sample
 
 <pre>
 <code>
