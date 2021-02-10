@@ -1,6 +1,6 @@
 # AdminPage
 
-### API
+## API
 
 #### Response Sample
 
