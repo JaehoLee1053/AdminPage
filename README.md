@@ -54,3 +54,8 @@
 - Request
 
 ![스크린샷, 2021-02-12 05-39-47](https://user-images.githubusercontent.com/67194430/107696196-ff8a3600-6cf4-11eb-98f0-8abfa1c19385.png)
+
+- Response
+
+![delete_response](https://user-images.githubusercontent.com/67194430/107696334-29dbf380-6cf5-11eb-9629-be921c9c365f.png)
+
