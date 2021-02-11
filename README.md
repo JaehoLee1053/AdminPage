@@ -28,10 +28,34 @@
 
 ![api_request_table](https://user-images.githubusercontent.com/67194430/107545329-80bacd80-6c0e-11eb-9b2d-7ec090f9bc30.png)
 
-#### Request
+### User
+
+##### read()
+
+- Request
+
 ![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107618911-aa6b0780-6c95-11eb-96e9-359372580125.png)
 
 
-##### Response
+- Response
 
 ![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107619562-b4413a80-6c96-11eb-9753-02099f001ec6.png)
+
+
+#### update()
+
+- Request
+
+![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107690965-327cfb80-6cee-11eb-8564-515b4f8e3404.png)
+
+
+#### delete()
+
+- Request
+
+![스크린샷, 2021-02-12 05-39-47](https://user-images.githubusercontent.com/67194430/107696196-ff8a3600-6cf4-11eb-98f0-8abfa1c19385.png)
+
+- Response
+
+![delete_response](https://user-images.githubusercontent.com/67194430/107696334-29dbf380-6cf5-11eb-9629-be921c9c365f.png)
+
