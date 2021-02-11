@@ -53,4 +53,4 @@
 
 - Request
 
-![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107695995-bb973100-6cf4-11eb-88a3-5add510593bc.png)
+![스크린샷, 2021-02-12 05-39-47](https://user-images.githubusercontent.com/67194430/107696196-ff8a3600-6cf4-11eb-98f0-8abfa1c19385.png)
