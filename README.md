@@ -33,6 +33,6 @@
 
 
 ##### Response
-###### read()
+- read()
 
 ![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107619562-b4413a80-6c96-11eb-9753-02099f001ec6.png)
