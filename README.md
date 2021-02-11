@@ -28,5 +28,10 @@
 
 ![api_request_table](https://user-images.githubusercontent.com/67194430/107545329-80bacd80-6c0e-11eb-9b2d-7ec090f9bc30.png)
 
+#### Request
 ![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107618911-aa6b0780-6c95-11eb-96e9-359372580125.png)
 
+
+##### Response
+
+![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107619562-b4413a80-6c96-11eb-9753-02099f001ec6.png)
