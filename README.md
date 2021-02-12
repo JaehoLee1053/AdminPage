@@ -68,7 +68,33 @@
 
 #### create()
 
+- Request
+
 ![item_create](https://user-images.githubusercontent.com/67194430/107731033-43525f00-6d38-11eb-8996-97f87a131f35.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624";
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "status":"REGISTERED",
+    "name":"전자노트북 S10",
+    "title":"전자노트북",
+    "content":"2021년 여름 한정판 노트북!!!",
+    "price":99800,
+    "brand_name":"전자가전",
+    "partner_id":1
+  }
+}
+</code>
+</pre>
+
+- Response
+
+![item_response](https://user-images.githubusercontent.com/67194430/107732595-1b64fa80-6d3c-11eb-9b75-b46a891aa854.png)
+
 
 <pre>
 <code>
