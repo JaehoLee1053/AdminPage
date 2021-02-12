@@ -1,6 +1,6 @@
 # AdminPage
 
-### API
+## API
 
 ### User
 
@@ -31,7 +31,7 @@
 ![api_request_table](https://user-images.githubusercontent.com/67194430/107545329-80bacd80-6c0e-11eb-9b2d-7ec090f9bc30.png)
 
 
-##### read()
+#### read()
 
 - Request
 
