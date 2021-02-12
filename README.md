@@ -42,7 +42,7 @@
 
 - Response
 
-![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107619562-b4413a80-6c96-11eb-9753-02099f001ec6.png)
+![스크린샷, 2021-02-11 18-26-22](https://user-images.githubusercontent.com/67194430/107732808-a5ad5e80-6d3c-11eb-8f74-f475c0f63370.png)
 
 
 #### update()
