@@ -1,6 +1,10 @@
 # AdminPage
 
-### API
+## API
+
+---
+
+### User
 
 #### Response Sample
 
@@ -10,16 +14,16 @@
   "transaction_time":"2021-02-11T00:30:39.342:,
   "result_code":"OK",
   "description":"OK",
-  "data":{
-    "id":1,
-    "account":"TestUser1",
-    "password":"password1",
-    "status":"REGISTERED",
-    "email":"TestUser1@gmail.com",
-    "phone_number":010-1111-0001:,
-    "last_login_at":null
-  },
-  "pagination":null
+   "data":{
+   "id":1,
+   "account":"TestUser1",
+   "password":"password1",
+   "status":"REGISTERED",
+   "email":"TestUser1@gmail.com",
+   "phone_number":010-1111-0001:,
+   "last_login_at":null
+ },
+ "pagination":null
 }
 </code>
 </pre>
@@ -28,9 +32,8 @@
 
 ![api_request_table](https://user-images.githubusercontent.com/67194430/107545329-80bacd80-6c0e-11eb-9b2d-7ec090f9bc30.png)
 
-### User
 
-##### read()
+#### read()
 
 - Request
 
@@ -39,7 +42,7 @@
 
 - Response
 
-![스크린샷, 2021-02-11 18-18-14](https://user-images.githubusercontent.com/67194430/107619562-b4413a80-6c96-11eb-9753-02099f001ec6.png)
+![스크린샷, 2021-02-11 18-26-22](https://user-images.githubusercontent.com/67194430/107732808-a5ad5e80-6d3c-11eb-8f74-f475c0f63370.png)
 
 
 #### update()
@@ -59,3 +62,55 @@
 
 ![delete_response](https://user-images.githubusercontent.com/67194430/107696334-29dbf380-6cf5-11eb-9629-be921c9c365f.png)
 
+
+
+### Item
+
+#### create()
+
+- Request
+
+![item_create](https://user-images.githubusercontent.com/67194430/107731033-43525f00-6d38-11eb-8996-97f87a131f35.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624";
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "status":"REGISTERED",
+    "name":"전자노트북 S10",
+    "title":"전자노트북",
+    "content":"2021년 여름 한정판 노트북!!!",
+    "price":99800,
+    "brand_name":"전자가전",
+    "partner_id":1
+  }
+}
+</code>
+</pre>
+
+- Response
+
+![item_response](https://user-images.githubusercontent.com/67194430/107732595-1b64fa80-6d3c-11eb-9b75-b46a891aa854.png)
+
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624";
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "status":"REGISTERED",
+    "name":"전자노트북 S10",
+    "title":"전자노트북",
+    "content":"2021년 여름 한정판 노트북!!!",
+    "price":99800,
+    "brand_name":"전자가전",
+    "partner_id":1
+  }
+}
+</code>
+</pre>
