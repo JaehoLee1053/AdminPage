@@ -8,50 +8,50 @@ import com.example.study.model.network.response.ItemApiResponse;
 import com.example.study.repository.ItemRepository;
 import com.example.study.repository.PartnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
-public class ItemApiLogicService implements CrudInterface<ItemRepository, ItemRepository> {
+public class ItemApiLogicService implements CrudInterface<ItemApiRequest, ItemApiResponse> {
 
     @Autowired
     private PartnerRepository partnerRepository;
 
+    @Autowired
+    private ItemRepository itemRepository;
+
     @Override
-    private Header<ItemApiResponse> create(Header<ItemApiRequest> request) {
+    public Header<ItemApiResponse> create(Header<ItemApiRequest> request) {
 
         ItemApiRequest body = request.getData();
 
-        public Header<ItemRepository> create (Header < ItemRepository > request) {
+        Item item = Item.builder()
+                .status(body.getStatus())
+                .name(body.getName())
+                .title(body.getTitle())
+                .content(body.getContent())
+                .price(body.getPrice())
+                .brandName(body.getBrandName())
+                .registeredAt(LocalDateTime.now())
+                .partner(partnerRepository.getOne(body.getPartnerId()))
+                .build();
 
-            ItemApiRequest body = request.getData();
+        Item newItem = itemRepository.save(item);
 
-            Item item = Item.builder()
-                    .status(body.getStatus())
-                    .name(body.getName())
-                    .title(body.getTitle())
-                    .content(body.getContent())
-                    .price(body.getPrice())
-                    .brandName(body.getBrandName())
-                    .registeredAt(LocalDateTime.now())
-                    .partner(partnerRepository.getOne(body.getPartnerId()))
-                    .build();
-
-            Item newitem = item;
-
-            return null;
-        }
+        return response(newItem);
     }
 
     @Override
-    public Header<ItemRepository> read(Long id) {
-        return null;
+    public Header<ItemApiResponse> read(Long id) {
+
+        return itemRepository.findById(id)
+                .map(item -> response(item))
+                .orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
     @Override
-    public Header<ItemRepository> update(Header<ItemRepository> request) {
+    public Header<ItemApiResponse> update(Header<ItemApiRequest> request) {
         return null;
     }
 
@@ -59,4 +59,24 @@ public class ItemApiLogicService implements CrudInterface<ItemRepository, ItemRe
     public Header delete(Long id) {
         return null;
     }
+
+    private Header<ItemApiResponse> response(Item item) {
+
+        ItemApiResponse body = ItemApiResponse.builder()
+                .id(item.getId())
+                .status(item.getStatus())
+                .name(item.getName())
+                .title(item.getTitle())
+                .content(item.getContent())
+                .price(item.getPrice())
+                .brandName(item.getBrandName())
+                .registeredAt(item.getRegisteredAt())
+                .unregisteredAt(item.getUnregisteredAt())
+                .partnerId(item.getPartner().getId())
+                .build();
+
+        return Header.OK(body);
+
+    }
+
 }
