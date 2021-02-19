@@ -75,7 +75,7 @@
 <pre>
 <code>
 {
-  "transaction_time":"2021-02-12T13:46:47.624";
+  "transaction_time":"2021-02-12T13:46:47.624",
   "result_code":"OK",
   "description":"OK",
   "data":{
@@ -99,7 +99,7 @@
 <pre>
 <code>
 {
-  "transaction_time":"2021-02-12T13:46:47.624";
+  "transaction_time":"2021-02-12T13:46:47.624",
   "result_code":"OK",
   "description":"OK",
   "data":{
