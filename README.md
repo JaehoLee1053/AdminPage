@@ -114,3 +114,62 @@
 }
 </code>
 </pre>
+
+#### read()
+
+- Request
+
+![item_read_request](https://user-images.githubusercontent.com/67194430/108489281-b897d400-72e4-11eb-8315-18804725e393.png)
+
+- Response
+
+![item_read_response](https://user-images.githubusercontent.com/67194430/108489293-bdf51e80-72e4-11eb-98ef-212313dab53f.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "status":"REGISTERED",
+    "name":"전자노트북 S10",
+    "title":"전자노트북",
+    "content":"2021년 여름 한정판 노트북!!!",
+    "price":99800,
+    "brand_name":"전자가전",
+    "partner_id":1
+  }
+}
+</code>
+</pre>
+
+#### update()
+
+- Request
+
+![item_update_request](https://user-images.githubusercontent.com/67194430/108489892-73c06d00-72e5-11eb-9598-e1e5a79cbf2e.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "status":"REGISTERED",
+    "name":"전자노트북 S10",
+    "title":"전자노트북",
+    "content":"2021년 여름 한정판 노트북!!!",
+    "price":89800,
+    "brand_name":"전자가전",
+    "partner_id":1,
+    "registered_at":"2021-02-19T19:03:02.231"
+  }
+}
+</code>
+</pre>
+
+- Response
+
+![item_update_response](https://user-images.githubusercontent.com/67194430/108489898-758a3080-72e5-11eb-833e-f0875baa14b8.png)
