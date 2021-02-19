@@ -272,3 +272,36 @@
 }
 </code>
 </pre>
+
+#### read()
+
+- Request
+
+![orderGroup_read_request](https://user-images.githubusercontent.com/67194430/108535568-d124e000-731e-11eb-9fc4-64d8a1fff9cc.png)
+
+- Response
+
+![orderGroup_read_response](https://user-images.githubusercontent.com/67194430/108535574-d1bd7680-731e-11eb-92e3-c898e4d9947b.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "id":2,
+    "status":"COMPLETE",
+    "order_type":"ALL",
+    "rev_address":"서울시 강남구",
+    "rev_name":"홍길동",
+    "payment_type":"CARD",
+    "total_price":75000,
+    "total_quantity":3,
+    "order_at":"2021-02-20T00:05:02.231",
+    "arrival_date":null,
+    "user_id":2
+  }
+}
+</code>
+</pre>
