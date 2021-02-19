@@ -360,3 +360,23 @@
 }
 </code>
 </pre>
+
+#### delete()
+
+- Response
+
+![orderGroup_delete_request](https://user-images.githubusercontent.com/67194430/108542489-27961c80-7327-11eb-8200-0911b08b81e0.png)
+
+- Request
+
+![orderGroup_delete_response](https://user-images.githubusercontent.com/67194430/108542491-282eb300-7327-11eb-9df3-176f9de7366d.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-20T03:01:34.231",
+  "result_code":"OK",
+  "description":"OK"
+}
+</code>
+</pre>
