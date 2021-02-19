@@ -195,3 +195,24 @@
 }
 </code>
 </pre>
+
+#### delete()
+
+- Request
+
+![item_delete_request](https://user-images.githubusercontent.com/67194430/108509605-c9eed980-7300-11eb-8217-074e96fc7b7f.png)
+
+
+- Response
+
+![delete_response](https://user-images.githubusercontent.com/67194430/108509618-ce1af700-7300-11eb-868e-f8dc295698ab.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+}
+</code>
+</pre>
