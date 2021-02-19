@@ -216,3 +216,167 @@
 }
 </code>
 </pre>
+
+## OrderGroup
+
+#### update()
+
+- Request
+
+![orderGroup_update_request](https://user-images.githubusercontent.com/67194430/108521874-88195f80-730f-11eb-9e10-2f19b80487a3.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "status":"COMPLETE",
+    "order_type":"ALL",
+    "rev_address":"서울시 강남구",
+    "rev_name":"홍길동",
+    "payment_type":"CARD",
+    "total_price":75000,
+    "total_quantity":3,
+    "order_at":"2021-02-20T00:05:02.231",
+    "user_id":2
+  }
+}
+</code>
+</pre>
+
+- Response
+
+![orderGroup_update_response](https://user-images.githubusercontent.com/67194430/108524804-c6fce480-7312-11eb-8aea-ce5dfcb12799.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "id":2,
+    "status":"COMPLETE",
+    "order_type":"ALL",
+    "rev_address":"서울시 강남구",
+    "rev_name":"홍길동",
+    "payment_type":"CARD",
+    "total_price":75000,
+    "total_quantity":3,
+    "order_at":"2021-02-20T00:05:02.231",
+    "arrival_date":null,
+    "user_id":2
+  }
+}
+</code>
+</pre>
+
+#### read()
+
+- Request
+
+![orderGroup_read_request](https://user-images.githubusercontent.com/67194430/108535568-d124e000-731e-11eb-9fc4-64d8a1fff9cc.png)
+
+- Response
+
+![orderGroup_read_response](https://user-images.githubusercontent.com/67194430/108535574-d1bd7680-731e-11eb-92e3-c898e4d9947b.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "id":2,
+    "status":"COMPLETE",
+    "order_type":"ALL",
+    "rev_address":"서울시 강남구",
+    "rev_name":"홍길동",
+    "payment_type":"CARD",
+    "total_price":75000,
+    "total_quantity":3,
+    "order_at":"2021-02-20T00:05:02.231",
+    "arrival_date":null,
+    "user_id":2
+  }
+}
+</code>
+</pre>
+
+#### update()
+
+- Request
+
+![orderGroup_update_response](https://user-images.githubusercontent.com/67194430/108540304-5eb6fe80-7324-11eb-818b-b5c8242f69a7.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "id":2,
+    "status":"COMPLETE",
+    "order_type":"ALL",
+    "rev_address":"서울시 강남구",
+    "rev_name":"홍길동",
+    "payment_type":"CARD",
+    "total_price":75000,
+    "total_quantity":3,
+    "order_at":"2021-02-20T00:05:02.231",
+    "user_id":2
+  }
+}
+</code>
+</pre>
+
+- Response
+
+![orderGroup_update_response](https://user-images.githubusercontent.com/67194430/108540619-c1a89580-7324-11eb-9942-363fcadd727f.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-12T13:46:47.624",
+  "result_code":"OK",
+  "description":"OK",
+  "data":{
+    "id":2,
+    "status":"COMPLETE",
+    "order_type":"ALL",
+    "rev_address":"서울시 강남구",
+    "rev_name":"홍길동",
+    "payment_type":"CARD",
+    "total_price":75000,
+    "total_quantity":3,
+    "order_at":"2021-02-20T00:05:02.231",
+    "arrival_date":null,
+    "user_id":2
+  }
+}
+</code>
+</pre>
+
+#### delete()
+
+- Response
+
+![orderGroup_delete_request](https://user-images.githubusercontent.com/67194430/108542489-27961c80-7327-11eb-8200-0911b08b81e0.png)
+
+- Request
+
+![orderGroup_delete_response](https://user-images.githubusercontent.com/67194430/108542491-282eb300-7327-11eb-9df3-176f9de7366d.png)
+
+<pre>
+<code>
+{
+  "transaction_time":"2021-02-20T03:01:34.231",
+  "result_code":"OK",
+  "description":"OK"
+}
+</code>
+</pre>
