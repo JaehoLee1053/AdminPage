@@ -11,6 +11,8 @@ import com.example.study.repository.OrderGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class OrderDetailApiLogicService implements CrudInterface<OrderDetailRequest, OrderDetailResponse> {
 
@@ -54,12 +56,38 @@ public class OrderDetailApiLogicService implements CrudInterface<OrderDetailRequ
 
     @Override
     public Header<OrderDetailResponse> update(Header<OrderDetailRequest> request) {
-        return null;
+
+        OrderDetailRequest body = request.getData();
+
+        Optional<OrderDetail> optional = orderDetailRepository.findById(body.getId());
+
+        return optional
+                .map(orderDetail -> {
+                    orderDetail
+                            .setStatus(body.getStatus())
+                            .setQuantity(body.getQuantity())
+                            .setTotalPrice(body.getTotalPrice())
+                            .setUpdatedAt(body.getUpdatedAt())
+                            .setUpdatedBy(body.getUpdatedBy())
+                            .setItem(itemRepository.getOne(body.getItemId()))
+                            .setOrderGroup(orderGroupRepository.getOne(body.getOrderGroupId()));
+
+                    return orderDetail;
+                })
+                .map(updateOrderDetail -> orderDetailRepository.save(updateOrderDetail))
+                .map(this::response)
+                .orElseGet(()->Header.ERROR("데이터 없음"));
+
     }
 
     @Override
     public Header delete(Long id) {
-        return null;
+        return orderDetailRepository.findById(id)
+                .map(orderDetail -> {
+                    orderDetailRepository.delete(orderDetail);
+                    return Header.OK();
+                })
+                .orElseGet(()->Header.ERROR("데이터 없음"));
     }
 
     private Header<OrderDetailResponse> response(OrderDetail orderDetail) {

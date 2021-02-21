@@ -22,7 +22,7 @@ public class OrderGroupApiController implements CrudInterface<OrderGroupApiReque
     }
 
     @Override
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public Header<OrderGroupApiResponse> read(@PathVariable Long id) {
         return orderGroupApiLogicService.read(id);
     }

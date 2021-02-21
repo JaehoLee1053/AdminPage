@@ -69,7 +69,7 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         UserApiRequest userApiRequest = request.getData();
 
         // 2. id -> user 데이터를 찾고
-        Optional<User> optional = userRepository.findById((userApiRequest.getId()));
+        Optional<User> optional = userRepository.findById(userApiRequest.getId());
 
         return optional
                 .map(user -> {

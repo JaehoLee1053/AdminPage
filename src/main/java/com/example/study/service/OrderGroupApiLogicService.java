@@ -58,7 +58,7 @@ public class OrderGroupApiLogicService implements CrudInterface<OrderGroupApiReq
 
         OrderGroupApiRequest body = request.getData();
 
-        orderGroupRepository.findById(body.getId())
+        return orderGroupRepository.findById(body.getId())
                 .map(orderGroup -> {
                     orderGroup
                             .setStatus(body.getStatus())
@@ -77,8 +77,6 @@ public class OrderGroupApiLogicService implements CrudInterface<OrderGroupApiReq
                 .map(changeOrderGroup -> orderGroupRepository.save(changeOrderGroup))
                 .map(this::response)
                 .orElseGet(()->Header.ERROR("데이터 없음"));
-
-        return null;
     }
 
     @Override

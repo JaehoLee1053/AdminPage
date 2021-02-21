@@ -1,9 +1,7 @@
 package com.example.study.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 import org.springframework.data.annotation.CreatedBy;
@@ -22,6 +20,8 @@ import java.util.List;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @ToString(exclude = {"itemList", "category"})
+@Builder
+@Accessors(chain = true)
 public class Partner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
