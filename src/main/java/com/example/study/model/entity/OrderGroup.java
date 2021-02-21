@@ -1,5 +1,6 @@
 package com.example.study.model.entity;
 
+import com.example.study.model.enumclass.OrderStatus;
 import com.example.study.model.enumclass.OrderType;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -27,7 +28,8 @@ public class OrderGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
     @Enumerated(EnumType.STRING)
     private OrderType orderType; // 일괄/개별

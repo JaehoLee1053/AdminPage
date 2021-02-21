@@ -1,9 +1,8 @@
 package com.example.study.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.example.study.model.enumclass.OrderStatus;
+import lombok.*;
+import lombok.experimental.Accessors;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -20,20 +19,31 @@ import java.time.LocalDateTime;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @ToString(exclude = {"orderGroup", "item"})
+@Builder
+@Accessors(chain = true)
 public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String status;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
+
     private LocalDateTime arrivalDate;
+
     private Integer quantity;
+
     private BigDecimal totalPrice;
+
     @CreatedDate
     private LocalDateTime createdAt;
+
     @CreatedBy
     private String createdBy;
+
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
     @LastModifiedBy
     private String updatedBy;
 
