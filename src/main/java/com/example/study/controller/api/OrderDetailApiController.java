@@ -1,5 +1,6 @@
 package com.example.study.controller.api;
 
+import com.example.study.controller.CrudController;
 import com.example.study.ifs.CrudInterface;
 import com.example.study.model.entity.OrderDetail;
 import com.example.study.model.network.Header;
@@ -10,38 +11,19 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/orderDetail")
-public class OrderDetailApiController implements CrudInterface<OrderDetailRequest, OrderDetailResponse> {
+public class OrderDetailApiController extends CrudController<OrderDetailRequest, OrderDetailResponse> {
 
     @Autowired
     OrderDetailApiLogicService orderDetailApiLogicService;
 
-    @Override
-    @PostMapping("")
-    public Header<OrderDetailResponse> create(@RequestBody Header<OrderDetailRequest> request) {
-        return orderDetailApiLogicService.create(request);
-    }
-
-    @Override
-    @GetMapping("{id}")
-    public Header<OrderDetailResponse> read(@PathVariable Long id) {
-        return orderDetailApiLogicService.read(id);
-    }
-
-    @Override
-    @PutMapping("")
-    public Header<OrderDetailResponse> update(@RequestBody Header<OrderDetailRequest> request) {
-        return orderDetailApiLogicService.update(request);
-
-    }
-
-    @Override
-    @DeleteMapping("{id}")
-    public Header delete(@PathVariable Long id) {
-        return orderDetailApiLogicService.delete(id);
+    @PostConstruct
+    public void init() {
+        this.baseService = orderDetailApiLogicService;
     }
 
 }
