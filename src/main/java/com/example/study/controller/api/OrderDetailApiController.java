@@ -3,6 +3,7 @@ package com.example.study.controller.api;
 import com.example.study.controller.CrudController;
 import com.example.study.ifs.CrudInterface;
 import com.example.study.model.entity.OrderDetail;
+import com.example.study.model.entity.OrderGroup;
 import com.example.study.model.network.Header;
 import com.example.study.model.network.request.OrderDetailRequest;
 import com.example.study.model.network.response.OrderDetailResponse;
@@ -16,14 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/orderDetail")
-public class OrderDetailApiController extends CrudController<OrderDetailRequest, OrderDetailResponse> {
+public class OrderDetailApiController extends CrudController<OrderDetailRequest, OrderDetailResponse, OrderDetail> {
 
-    @Autowired
-    OrderDetailApiLogicService orderDetailApiLogicService;
-
-    @PostConstruct
-    public void init() {
-        this.baseService = orderDetailApiLogicService;
-    }
 
 }
