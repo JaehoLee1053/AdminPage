@@ -91,7 +91,7 @@ public class ItemApiLogicService extends BaseService<ItemApiRequest, ItemApiResp
 
     }
 
-    private ItemApiResponse response(Item item) {
+    public ItemApiResponse response(Item item) {
 
         ItemApiResponse body = ItemApiResponse.builder()
                 .id(item.getId())
