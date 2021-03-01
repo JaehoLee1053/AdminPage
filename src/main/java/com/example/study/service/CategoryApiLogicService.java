@@ -7,10 +7,14 @@ import com.example.study.model.network.response.CategoryApiResponse;
 import com.example.study.repository.CategoryRepository;
 import com.example.study.repository.PartnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryApiLogicService extends BaseService<CategoryApiRequest, CategoryApiResponse, Category> {
@@ -32,7 +36,7 @@ public class CategoryApiLogicService extends BaseService<CategoryApiRequest, Cat
 
         Category newCategory = baseRepository.save(category);
 
-        return response(newCategory);
+        return Header.OK(response(newCategory));
     }
 
     @Override
@@ -40,6 +44,7 @@ public class CategoryApiLogicService extends BaseService<CategoryApiRequest, Cat
 
         return baseRepository.findById(id)
                 .map(category -> response(category))
+                .map(Header::OK)
                 .orElseGet(() -> Header.ERROR("데이터 없음"));
 
     }
@@ -61,6 +66,7 @@ public class CategoryApiLogicService extends BaseService<CategoryApiRequest, Cat
                 })
                 .map(updateCategory -> baseRepository.save(updateCategory))
                 .map(category -> response(category))
+                .map(Header::OK)
                 .orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
@@ -77,7 +83,7 @@ public class CategoryApiLogicService extends BaseService<CategoryApiRequest, Cat
 
     }
 
-    private Header<CategoryApiResponse> response(Category category) {
+    private CategoryApiResponse response(Category category) {
 
         CategoryApiResponse categoryApiResponse = CategoryApiResponse.builder()
                 .id(category.getId())
@@ -89,8 +95,19 @@ public class CategoryApiLogicService extends BaseService<CategoryApiRequest, Cat
                 .updatedBy(category.getUpdatedBy())
                 .build();
 
-        return Header.OK(categoryApiResponse);
+        return categoryApiResponse;
 
     }
 
+    @Override
+    public Header<List<CategoryApiResponse>> search(Pageable pageable) {
+
+        Page<Category> categories = baseRepository.findAll(pageable);
+
+        List<CategoryApiResponse> categoryApiResponseList = categories.stream()
+                .map(this::response)
+                .collect(Collectors.toList());
+
+        return null;
+    }
 }

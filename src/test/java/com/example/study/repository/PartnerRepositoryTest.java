@@ -16,7 +16,7 @@ public class PartnerRepositoryTest extends StudyApplicationTests {
     public void create() {
         String name = "Partner01";
         String status = "REGISTERED";
-        String addrerss = "서울시 강남구";
+        String address = "서울시 강남구";
         String callCenter = "070-1111-2222";
         String partnerNumber = "010-1111-2222";
         String businessNumber = "1234567890123";
@@ -29,7 +29,7 @@ public class PartnerRepositoryTest extends StudyApplicationTests {
         Partner partner = new Partner();
         partner.setName(name);
         partner.setStatus(status);
-        partner.setAddress(addrerss);
+        partner.setAddress(address);
         partner.setCallCenter(callCenter);
         partner.setPartnerNumber(partnerNumber);
         partner.setBusinessNumber(businessNumber);

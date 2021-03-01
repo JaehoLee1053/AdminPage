@@ -4,14 +4,21 @@ import com.example.study.ifs.CrudInterface;
 import com.example.study.model.entity.User;
 import com.example.study.model.enumclass.UserStatus;
 import com.example.study.model.network.Header;
+import com.example.study.model.network.Pagination;
 import com.example.study.model.network.request.UserApiRequest;
 import com.example.study.model.network.response.UserApiResponse;
 import com.example.study.repository.UserRepository;
+import jdk.javadoc.internal.doclets.formats.html.markup.Head;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Service
 public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResponse, User> {
@@ -38,7 +45,7 @@ public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResp
 
         // 3. 생성된 데이터 -> userApiResponse return
 
-        return response(newUser);
+        return Header.OK(response(newUser));
     }
 
     @Override
@@ -55,6 +62,7 @@ public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResp
         // Lambda 식 표현
         return baseRepository.findById(id)
                 .map(user -> response(user))
+                .map(Header::OK)
                 .orElseGet(() -> Header.ERROR("데이터 없음"));
 
     }
@@ -85,7 +93,7 @@ public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResp
                 })
                 // 4. userApiResponse
                 .map(user -> baseRepository.save(user))  // update -> updateUser
-                .map(updateUser -> response(updateUser))            // userApiResponse
+                .map(updateUserApiResponse -> Header.OK(response(updateUserApiResponse)))            // userApiResponse
                 .orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 
@@ -102,11 +110,11 @@ public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResp
 
             // 3. response return
             return Header.OK();
-        }).orElseGet(()->Header.ERROR("데이터 없음"));
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
 
     }
 
-    private Header<UserApiResponse> response(User user) {
+    private UserApiResponse response(User user) {
         // user -> userApiResponse
 
         UserApiResponse userApiResponse = UserApiResponse.builder()
@@ -121,7 +129,25 @@ public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResp
                 .build();
 
         // Header + date return
-        return Header.OK(userApiResponse);
+        return userApiResponse;
     }
 
+    public Header<List<UserApiResponse>> search(Pageable pageable) {
+
+        Page<User> users = baseRepository.findAll(pageable);
+
+        List<UserApiResponse> userApiResponsesList = users.stream()
+                .map(user -> response(user))
+                .collect(Collectors.toList());
+
+        Pagination pagination = Pagination.builder()
+                .totalPages(users.getTotalPages())
+                .totalElements(users.getTotalElements())
+                .currentPage(users.getNumber())
+                .currentElements(users.getNumberOfElements())
+                .build();
+
+        return Header.OK(userApiResponsesList, pagination);
+
+    }
 }

@@ -6,11 +6,14 @@ import com.example.study.model.entity.AdminUser;
 import com.example.study.model.network.Header;
 import com.example.study.model.network.request.AdminUserApiRequest;
 import com.example.study.model.network.response.AdminUserApiResponse;
+import com.example.study.model.network.response.UserApiResponse;
 import com.example.study.service.AdminUserApiLogicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.awt.print.Pageable;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/adminUser")
