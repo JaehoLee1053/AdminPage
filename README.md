@@ -380,3 +380,9 @@
 }
 </code>
 </pre>
+
+#### all
+
+- Response
+
+![all_response](https://user-images.githubusercontent.com/67194430/109505514-0334ff80-7ae0-11eb-8aa8-c27565832b60.png)
